@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role'
     ];
 
     /**
@@ -44,5 +45,25 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function patients()
+    {
+        return $this->hasMany(Patient::class, 'created_by');
+    }
+
+    public function vitals()
+    {
+        return $this->hasMany(Vital::class, 'nurse_id');
+    }
+
+    public function diagnosis()
+    {
+        return $this->hasMany(Diagnosis::class, 'doctor_id');
+    }
+
+    public function prescriptions()
+    {
+        return $this->hasMany(Prescription::class, 'pharmacist_id');
     }
 }
