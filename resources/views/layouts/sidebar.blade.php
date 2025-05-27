@@ -1,6 +1,6 @@
 <div class="vertical-menu">
     <div class="navbar-brand-box">
-        <a href="{{ url('dashboard') }}" class="logo logo-dark">
+        <a href="{{ url('/') }}" class="logo logo-dark">
             <span class="logo-sm">
                 <img src="{{ URL::asset('/assets/images/logo-sm.png') }}" alt="" height="32">
             </span>
@@ -9,7 +9,7 @@
             </span>
         </a>
 
-        <a href="{{ url('dashboard') }}" class="logo logo-light">
+        <a href="{{ url('/') }}" class="logo logo-light">
             <span class="logo-sm">
                 <img src="{{ URL::asset('/assets/images/logo-sm.png') }}" alt="" height="32">
             </span>
@@ -29,7 +29,7 @@
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title">Menu</li>
                 <li>
-                    <a href="{{ url('dashboard') }}">
+                    <a href="{{ url('/') }}">
                         <i class="uil-home-alt"></i>
                         <span>Dashboard</span>
                     </a>
