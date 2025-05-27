@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\VitalController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -31,5 +32,15 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/', [MedicineController::class, 'store'])->name('medicines.store');
         Route::put('/{medicine}', [MedicineController::class, 'update'])->name('medicines.update');
         Route::delete('/{medicine}', [MedicineController::class, 'destroy'])->name('medicines.destroy');
+    });
+
+    Route::prefix('/vitals')->group(function () {
+        Route::get('/', [VitalController::class, 'index'])->name('vitals.index');
+        Route::get('/create', [VitalController::class, 'create'])->name('vitals.create');
+        Route::get('/{vital}', [VitalController::class, 'show'])->name('vitals.show');
+        Route::get('/{vital}/edit', [VitalController::class, 'edit'])->name('vitals.edit');
+        Route::post('/', [VitalController::class, 'store'])->name('vitals.store');
+        Route::put('/{vital}', [VitalController::class, 'update'])->name('vitals.update');
+        Route::delete('/{vital}', [VitalController::class, 'destroy'])->name('vitals.destroy');
     });
 });
