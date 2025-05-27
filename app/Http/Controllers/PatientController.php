@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Patient;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PatientController extends Controller
 {
@@ -39,6 +40,7 @@ class PatientController extends Controller
         ]);
 
         Patient::create([
+            'created_by' => Auth::user()->id,
             'name' => $request->name,
             'birth_date' => $request->birth_date,
             'gender' => $request->gender,

@@ -48,7 +48,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $patient->name }}</td>
-                                <td>{{ $patient->birth_date }}</td>
+                                <td>{{ \Carbon\Carbon::parse($patient->birth_date)->translatedFormat('d M Y') }}</td>
                                 <td>{{ Str::title($patient->gender) }}</td>
                                 <td>{{ $patient->phone_number }}</td>
                                 <td>

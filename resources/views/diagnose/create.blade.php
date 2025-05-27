@@ -98,7 +98,7 @@
                 const patientId = this.value;
 
                 if (patientId) {
-                    fetch(`/vitals/latest/${patientId}`)
+                    fetch(`/diagnoses/latest/${patientId}`)
                         .then(response => {
                             if (!response.ok) {
                                 throw new Error('No data');

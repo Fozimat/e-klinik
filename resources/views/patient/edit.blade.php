@@ -52,7 +52,7 @@
                         <div class="mb-3 row">
                             <label for="birth_date" class="col-md-2 col-form-label">Tanggal Lahir</label>
                             <div class="col-md-10">
-                                <input class="form-control @error('birth_date') is-invalid @enderror" type="text"
+                                <input class="form-control @error('birth_date') is-invalid @enderror" type="date"
                                     id="birth_date" name="birth_date" value="{{ old('birth_date', $patient->birth_date) }}">
                                 @error('birth_date')
                                     <div class="invalid-feedback">{{ $message }}</div>
