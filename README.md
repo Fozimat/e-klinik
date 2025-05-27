@@ -43,8 +43,8 @@ Seeder sudah disediakan untuk login role-role berikut:
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/fozimat/laravel-klinik.git
-cd laravel-klinik
+git clone https://github.com/fozimat/e-klinik.git
+cd e-klinik
 ```
 
 ### 2. Install dependency
