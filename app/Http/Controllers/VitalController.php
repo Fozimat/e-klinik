@@ -15,6 +15,17 @@ class VitalController extends Controller
         return view('vital.index', compact(['vitals']));
     }
 
+    public function getLatestVital(Patient $patient)
+    {
+        $vital = $patient->vitals()->latest('created_at')->first();
+
+        if ($vital) {
+            return response()->json($vital);
+        }
+
+        return response()->json(null, 404);
+    }
+
     public function create()
     {
         $patients = Patient::latest()->get();

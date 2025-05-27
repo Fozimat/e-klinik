@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Diagnosis extends Model
+class Diagnose extends Model
 {
-    protected $fillable = ['patient_id', 'doctor_id', 'complaint', 'diagnosis', 'diagnosed_at'];
+    protected $fillable = ['patient_id', 'doctor_id', 'complaint', 'diagnosis'];
 
     public function patient()
     {

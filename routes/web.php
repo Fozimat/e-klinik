@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DiagnoseController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\VitalController;
@@ -39,8 +40,19 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/create', [VitalController::class, 'create'])->name('vitals.create');
         Route::get('/{vital}', [VitalController::class, 'show'])->name('vitals.show');
         Route::get('/{vital}/edit', [VitalController::class, 'edit'])->name('vitals.edit');
+        Route::get('/latest/{patient}', [VitalController::class, 'getLatestVital'])->name('vitals.latest');
         Route::post('/', [VitalController::class, 'store'])->name('vitals.store');
         Route::put('/{vital}', [VitalController::class, 'update'])->name('vitals.update');
         Route::delete('/{vital}', [VitalController::class, 'destroy'])->name('vitals.destroy');
+    });
+
+    Route::prefix('/diagnoses')->group(function () {
+        Route::get('/', [DiagnoseController::class, 'index'])->name('diagnoses.index');
+        Route::get('/create', [DiagnoseController::class, 'create'])->name('diagnoses.create');
+        Route::get('/{diagnose}', [DiagnoseController::class, 'show'])->name('diagnoses.show');
+        Route::get('/{diagnose}/edit', [DiagnoseController::class, 'edit'])->name('diagnoses.edit');
+        Route::post('/', [DiagnoseController::class, 'store'])->name('diagnoses.store');
+        Route::put('/{diagnose}', [DiagnoseController::class, 'update'])->name('diagnoses.update');
+        Route::delete('/{diagnose}', [DiagnoseController::class, 'destroy'])->name('diagnoses.destroy');
     });
 });

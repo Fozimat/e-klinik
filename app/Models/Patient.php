@@ -20,7 +20,7 @@ class Patient extends Model
 
     public function diagnosis()
     {
-        return $this->hasMany(Diagnosis::class);
+        return $this->hasMany(Diagnose::class);
     }
 
     public function prescriptions()

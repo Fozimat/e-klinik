@@ -1,5 +1,5 @@
 <li>
-    <a href="{{ url('medications') }}">
+    <a href="{{ url('medicines') }}">
         <i class="uil-capsule"></i>
         <span>Kelola Obat</span>
     </a>
