@@ -49,10 +49,14 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $patient->name }}</td>
                                 <td>{{ $patient->birth_date }}</td>
-                                <td>{{ $patient->gender }}</td>
+                                <td>{{ Str::title($patient->gender) }}</td>
                                 <td>{{ $patient->phone_number }}</td>
                                 <td>
                                     <div class="d-flex flex-wrap gap-2">
+                                        <a href="{{ route('patients.show', $patient->id) }}"
+                                            class="btn btn-success waves-effect waves-light">
+                                            <i class="uil uil-edit me-2"></i> Hasil Pemeriksaan
+                                        </a>
                                         <a href="{{ route('patients.edit', $patient->id) }}"
                                             class="btn btn-warning waves-effect waves-light">
                                             <i class="uil uil-edit me-2"></i> Edit

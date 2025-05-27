@@ -18,6 +18,17 @@ class PatientController extends Controller
         return view('patient.create');
     }
 
+    public function show(Patient $patient)
+    {
+        $patient->load([
+            'vitals' => fn($q) => $q->latest('created_at')->limit(1),
+            'diagnosis.doctor',
+            'diagnosis.prescriptions.medicine',
+        ]);
+
+        return view('patient.show', compact(['patient']));
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [
