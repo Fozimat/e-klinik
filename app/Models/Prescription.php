@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Prescription extends Model
 {
-    protected $fillable = ['patient_id', 'medicine_id', 'pharmacist_id', 'dosage', 'notes'];
+    protected $fillable = ['diagnose_id', 'medicine_id', 'pharmacist_id', 'dosage', 'notes'];
 
-    public function patient()
+    public function diagnose()
     {
-        return $this->belongsTo(Patient::class);
+        return $this->belongsTo(Diagnose::class);
     }
 
     public function medicine()

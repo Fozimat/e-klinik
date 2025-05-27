@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DiagnoseController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\PrescriptionController;
 use App\Http\Controllers\VitalController;
 use Illuminate\Support\Facades\Route;
 
@@ -54,5 +55,15 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/', [DiagnoseController::class, 'store'])->name('diagnoses.store');
         Route::put('/{diagnose}', [DiagnoseController::class, 'update'])->name('diagnoses.update');
         Route::delete('/{diagnose}', [DiagnoseController::class, 'destroy'])->name('diagnoses.destroy');
+    });
+
+    Route::prefix('/prescriptions')->group(function () {
+        Route::get('/', [PrescriptionController::class, 'index'])->name('prescriptions.index');
+        Route::get('/create', [PrescriptionController::class, 'create'])->name('prescriptions.create');
+        Route::get('/{prescription}', [PrescriptionController::class, 'show'])->name('prescriptions.show');
+        Route::get('/{prescription}/edit', [PrescriptionController::class, 'edit'])->name('prescriptions.edit');
+        Route::post('/', [PrescriptionController::class, 'store'])->name('prescriptions.store');
+        Route::put('/{prescription}', [PrescriptionController::class, 'update'])->name('prescriptions.update');
+        Route::delete('/{prescription}', [PrescriptionController::class, 'destroy'])->name('prescriptions.destroy');
     });
 });
