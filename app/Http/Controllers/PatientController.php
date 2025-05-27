@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Patient;
 use Illuminate\Http\Request;
-use Yajra\DataTables\DataTables;
 
 class PatientController extends Controller
 {
@@ -26,6 +25,13 @@ class PatientController extends Controller
             'birth_date' => ['required', 'date'],
             'gender' => ['required', 'in:male,female'],
             'phone_number' => ['required', 'digits_between:8,16', 'unique:patients'],
+        ]);
+
+        Patient::create([
+            'name' => $request->name,
+            'birth_date' => $request->birth_date,
+            'gender' => $request->gender,
+            'phone_number' => $request->phone_number,
         ]);
 
         return redirect()->route('patients.index')->with('success', 'Pasien berhasil ditambahkan');

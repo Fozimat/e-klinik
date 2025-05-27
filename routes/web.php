@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\PatientController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +21,15 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/', [PatientController::class, 'store'])->name('patients.store');
         Route::put('/{patient}', [PatientController::class, 'update'])->name('patients.update');
         Route::delete('/{patient}', [PatientController::class, 'destroy'])->name('patients.destroy');
+    });
+
+    Route::prefix('/medicines')->group(function () {
+        Route::get('/', [MedicineController::class, 'index'])->name('medicines.index');
+        Route::get('/create', [MedicineController::class, 'create'])->name('medicines.create');
+        Route::get('/{medicine}', [MedicineController::class, 'show'])->name('medicines.show');
+        Route::get('/{medicine}/edit', [MedicineController::class, 'edit'])->name('medicines.edit');
+        Route::post('/', [MedicineController::class, 'store'])->name('medicines.store');
+        Route::put('/{medicine}', [MedicineController::class, 'update'])->name('medicines.update');
+        Route::delete('/{medicine}', [MedicineController::class, 'destroy'])->name('medicines.destroy');
     });
 });
