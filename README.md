@@ -29,12 +29,12 @@ Sistem informasi klinik berbasis web yang dibangun menggunakan Laravel 12. Aplik
 
 Seeder sudah disediakan untuk login role-role berikut:
 
-| Role         | Email                    | Password |
-| ------------ | ------------------------ | -------- |
-| Receptionist | receptionist@example.com | password |
-| Nurse        | nurse@example.com        | password |
-| Doctor       | doctor@example.com       | password |
-| Pharmacist   | pharmacist@example.com   | password |
+| Role         | Email                  | Password |
+| ------------ | ---------------------- | -------- |
+| Receptionist | receptionist@gmail.com | password |
+| Nurse        | nurse@gmail.com        | password |
+| Doctor       | doctor@gmail.com       | password |
+| Pharmacist   | pharmacist@gmail.com   | password |
 
 ---
 
